@@ -6,7 +6,7 @@
 /*   By: fpetras <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 09:10:45 by fpetras           #+#    #+#             */
-/*   Updated: 2017/11/27 09:21:24 by fpetras          ###   ########.fr       */
+/*   Updated: 2017/11/28 14:53:18 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,36 @@ typedef struct	s_struct
 	size_t		map_height;
 }				t_struct;
 
+typedef struct	s_values
+{
+	void		*mlx;
+	void		*win;
+	int			i;
+	int			x;
+	int			x1;
+	int			x2;
+	int			dx;
+	int			sx;
+	int			y;
+	int			y1;
+	int			y2;
+	int			dy;
+	int			sy;
+	int			swap;
+	int			d;
+}				t_values;
+
+typedef struct	s_coords
+{
+	int			x1;
+	int			y1;
+	int			x2;
+	int			y2;
+}				t_coords;
+
 void			map_dimensions(char *file, t_struct *data);
 void			map_data(char *file, t_struct *data);
+void			draw_line(t_struct *data, t_values *v);
+void			ft_init_values(t_values *v, int x1, int y1, int x2, int y2);
 
 #endif

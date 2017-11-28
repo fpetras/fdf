@@ -6,14 +6,15 @@
 #    By: fpetras <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/25 08:13:19 by fpetras           #+#    #+#              #
-#    Updated: 2017/11/27 09:21:16 by fpetras          ###   ########.fr        #
+#    Updated: 2017/11/28 14:53:30 by fpetras          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
 SRC = main.c \
-	  get_map_data.c
+	  get_map_data.c \
+	  draw_lines.c
 
 OBJ = $(SRC:.c=.o)
 

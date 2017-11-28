@@ -6,7 +6,7 @@
 #    By: fpetras <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 08:34:49 by fpetras           #+#    #+#              #
-#    Updated: 2017/11/27 15:09:00 by fpetras          ###   ########.fr        #
+#    Updated: 2017/11/28 13:17:13 by fpetras          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ SRC =	ft_memset.c \
 		ft_lstmap.c \
 		\
 		ft_abs.c \
+		ft_swap.c \
 		ft_isspace.c \
 		ft_isupper.c \
 		ft_islower.c \
