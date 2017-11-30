@@ -6,7 +6,7 @@
 /*   By: fpetras <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 07:28:33 by fpetras           #+#    #+#             */
-/*   Updated: 2017/11/29 15:51:47 by fpetras          ###   ########.fr       */
+/*   Updated: 2017/11/30 17:12:36 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static t_values	*ft_init_values(t_struct *data)
 {
 	t_values *v;
 
-	v = (t_values*)malloc(sizeof(t_values));
+	if (!(v = (t_values*)malloc(sizeof(t_values))))
+		exit(write(2, "malloc failure\n", 15));
 	v->dx = abs(data->x2 - data->x1);
 	v->dy = abs(data->y2 - data->y1) * -1;
 	v->sx = (data->x2 > data->x1) ? 1 : -1;

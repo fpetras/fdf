@@ -6,7 +6,7 @@
 /*   By: fpetras <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 09:10:45 by fpetras           #+#    #+#             */
-/*   Updated: 2017/11/29 15:46:06 by fpetras          ###   ########.fr       */
+/*   Updated: 2017/11/30 12:02:36 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@
 
 # define WIN_WIDTH	1280
 # define WIN_HEIGHT	720
+# define ESC		53
 
 typedef struct	s_struct
 {
 	void		*mlx;
 	void		*win;
 	void		*img;
-	char		**av;
+	int			fd;
+	char		*line;
+	char		**values;
 	int			**map;
 	size_t		map_width;
 	size_t		map_height;
@@ -60,16 +63,7 @@ typedef struct	s_values
 	int			sy;
 	int			d;
 	int			d2;
-	int			swap;
 }				t_values;
-
-typedef struct	s_coords
-{
-	int			x1;
-	int			y1;
-	int			x2;
-	int			y2;
-}				t_coords;
 
 void			map_dimensions(char *file, t_struct *data);
 void			map_data(char *file, t_struct *data);

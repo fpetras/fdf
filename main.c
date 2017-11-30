@@ -6,7 +6,7 @@
 /*   By: fpetras <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 09:09:45 by fpetras           #+#    #+#             */
-/*   Updated: 2017/11/29 15:32:43 by fpetras          ###   ########.fr       */
+/*   Updated: 2017/11/30 17:04:39 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	my_key_hook_funct(int keycode, t_struct *data)
 {
 	(void)data;
-	if (keycode == 53)
+	if (keycode == ESC)
 	{
 		mlx_destroy_window(data->mlx, data->win);
 		exit(0);
@@ -25,6 +25,8 @@ static int	my_key_hook_funct(int keycode, t_struct *data)
 
 static void	wireframe(char *file, t_struct *data)
 {
+	data->map_width = 0;
+	data->map_height = 0;
 	map_dimensions(file, data);
 	map_data(file, data);
 	ft_set_constants(data);
@@ -44,6 +46,7 @@ int			main(int ac, char **av)
 	if (ac == 2)
 		wireframe(av[1], data);
 	else
-		ft_putendl_fd("usage: ./fdf filename", 2);
+		ft_putendl_fd("usage: ./fdf file", 2);
+	free(data);
 	return (0);
 }
