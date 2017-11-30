@@ -6,7 +6,7 @@
 /*   By: fpetras <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 08:59:29 by fpetras           #+#    #+#             */
-/*   Updated: 2017/11/27 14:53:23 by fpetras          ###   ########.fr       */
+/*   Updated: 2017/11/29 15:32:07 by fpetras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ void		map_dimensions(char *file, t_struct *data)
 		i++;
 	}
 }
+
+/*
+** for testing purposes
+*/
 
 static void	print_map(t_struct *data)
 {

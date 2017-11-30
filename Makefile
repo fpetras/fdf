@@ -6,7 +6,7 @@
 #    By: fpetras <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/25 08:13:19 by fpetras           #+#    #+#              #
-#    Updated: 2017/11/28 14:53:30 by fpetras          ###   ########.fr        #
+#    Updated: 2017/11/29 12:51:47 by fpetras          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = fdf
 
 SRC = main.c \
 	  get_map_data.c \
-	  draw_lines.c
+	  set_constants.c \
+	  draw.c
 
 OBJ = $(SRC:.c=.o)
 
