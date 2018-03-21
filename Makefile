@@ -23,7 +23,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-MLXFLAGS = -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS = libmlx.a -framework OpenGL -framework AppKit
 
 LIBFT = libft
 
