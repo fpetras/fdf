@@ -6,7 +6,7 @@
 #    By: fpetras <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/25 08:13:19 by fpetras           #+#    #+#              #
-#    Updated: 2017/11/30 09:00:54 by fpetras          ###   ########.fr        #
+#    Updated: 2018/04/24 12:03:03 by fpetras          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,40 +17,61 @@ SRC = main.c \
 	  set_constants.c \
 	  draw.c
 
-OBJ = $(SRC:.c=.o)
+OBJPATH = obj/
+OBJ = $(addprefix $(OBJPATH),$(SRC:.c=.o))
 
 CC = gcc
-
 CFLAGS = -Wall -Werror -Wextra
-
 MLXFLAGS = libmlx.a -framework OpenGL -framework AppKit
 
-LIBFT = libft
+# ----- ANSI Escape Sequences ----- #
+RED = \033[1;31m
+GREEN = \033[1;32m
+YELLOW = \033[1;33m
+BLUE = \033[1;34m
+PURPLE = \033[1;35m
+CYAN = \033[1;36m
+WHITE = \033[1;37m
+UNDERLINE = \033[0;4m
+TEXT_RESET = \033[0;0m
+# --------------------------------- #
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJ)
+	@echo "$(TEXT_RESET)"
 	@echo "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
 	@echo "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
-	@echo "0 \033[35m10 10 10 10 10\033[0m  0 \033[35m10 10 10 10\033[0m  0  0  0 \033[35m10 10 10 10 10\033[0m  0"
-	@echo "0 \033[35m10 10\033[0m  0  0  0  0 \033[35m10 10\033[0m  0  0 \033[35m10\033[0m  0  0 \033[35m10 10\033[0m  0  0  0  0"
-	@echo "0 \033[35m10 10\033[0m  0  0  0  0 \033[35m10 10\033[0m  0  0 \033[35m10\033[0m  0  0 \033[35m10 10\033[0m  0  0  0  0"
-	@echo "0 \033[35m10 10 10 10\033[0m  0  0 \033[35m10 10\033[0m  0  0 \033[35m10\033[0m  0  0 \033[35m10 10 10 10\033[0m  0  0"
-	@echo "0 \033[35m10 10\033[0m  0  0  0  0 \033[35m10 10\033[0m  0  0 \033[35m10\033[0m  0  0 \033[35m10 10\033[0m  0  0  0  0"
-	@echo "0 \033[35m10 10\033[0m  0  0  0  0 \033[35m10 10\033[0m  0  0 \033[35m10\033[0m  0  0 \033[35m10 10\033[0m  0  0  0  0"
-	@echo "0 \033[35m10 10\033[0m  0  0  0  0 \033[35m10 10 10 10\033[0m  0  0  0 \033[35m10 10\033[0m  0  0  0  0"
+	@echo "0 $(PURPLE)10 10 10 10 10$(TEXT_RESET)  0 $(PURPLE)10 10 10 10$(TEXT_RESET)  0  0  0 $(PURPLE)10 10 10 10 10$(TEXT_RESET)  0"
+	@echo "0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0 $(PURPLE)10$(TEXT_RESET)  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0"
+	@echo "0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0 $(PURPLE)10$(TEXT_RESET)  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0"
+	@echo "0 $(PURPLE)10 10 10 10$(TEXT_RESET)  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0 $(PURPLE)10$(TEXT_RESET)  0  0 $(PURPLE)10 10 10 10$(TEXT_RESET)  0  0"
+	@echo "0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0 $(PURPLE)10$(TEXT_RESET)  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0"
+	@echo "0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0 $(PURPLE)10$(TEXT_RESET)  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0"
+	@echo "0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0 $(PURPLE)10 10 10 10$(TEXT_RESET)  0  0  0 $(PURPLE)10 10$(TEXT_RESET)  0  0  0  0"
 	@echo "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
-	@echo "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0"
-	@make -C ./libft
-	@$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(LIBFT)/libft.a $(MLXFLAGS)
-	@echo "\033[92mSuccess\033[0m"
+	@echo "0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0\n"
+	@echo "$(UNDERLINE)libft:$(TEXT_RESET)"
+	@echo "$(BLUE)"
+	@make -C libft
+	@echo "$(TEXT_RESET)"
+	@echo "Generating executable file:\n$(WHITE)$@\n$(TEXT_RESET)"
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME) libft/libft.a $(MLXFLAGS)
+	@echo "$(GREEN)Success$(TEXT_RESET)"
+
+$(OBJPATH)%.o: %.c
+	@test -d $(OBJPATH) || mkdir $(OBJPATH)
+	@echo "$(CYAN)Compiling $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJ)
-	@make clean -C $(LIBFT)
+	@make clean -C libft
+	@rm -rf $(OBJPATH)
 
 fclean: clean
+	@make fclean -C libft
 	@rm -f $(NAME)
-	@make fclean -C $(LIBFT)
 
 re: fclean all
+
+.PHONY: all clean fclean re
