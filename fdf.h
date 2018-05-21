@@ -22,7 +22,7 @@
 # include <math.h>
 # include "mlx.h"
 # include "libft/libft.h"
-# include "libft/get_next_line.h"
+# include "libft/get_next_line/get_next_line.h"
 
 # define WIN_WIDTH	1280
 # define WIN_HEIGHT	720
