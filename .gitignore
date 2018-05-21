@@ -1,0 +1,16 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+!libmlx.a
+
+# Executables
+*.out
+fdf
+
+# Debug files
+*.dSYM/
+
+# OS generated files
+.DS_Store
